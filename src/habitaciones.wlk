@@ -19,7 +19,8 @@ class Habitaciones {
 			self.error("No puede entrar a la habitacion manito")
 	}
 	method ocupantesEnHabitacion() = ocupantes.asSet()
-	method mayorOcupante() = self.edadDeLosOcupantes().max()
+	method mayorOcupante() = ocupantes.find({o => o.edad() == self.edadDelMayorOcupante()})
+	method edadDelMayorOcupante() = self.edadDeLosOcupantes().max()
 	method edadDeLosOcupantes() = ocupantes.map({o => o.edad()})
 }
 
